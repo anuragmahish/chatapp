@@ -20,19 +20,79 @@ socket.on('clients-total', (data) => {
 function sendMessage() {
   if (messageInput.value === '') return
   
-  //encrypting message
+/*encrypting message using DES
+
   let start = Date.now()
-  const ciphertext = CryptoJS.AES.encrypt( messageInput.value, key, {
-    mode: CryptoJS.mode.CBC,
+  const ciphertext = CryptoJS.DES.encrypt( messageInput.value, key, {
+    mode: CryptoJS.mode.CTR,
     padding: CryptoJS.pad.Pkcs7,
   }).toString();
   let end = Date.now()
+  let algoUsed = "DES"
+*/
+
+/*encrypting message using TripleDES
+
+  let start = Date.now()
+  const ciphertext = CryptoJS.TripleDES.encrypt( messageInput.value, key, {
+    mode: CryptoJS.mode.CTR,
+    padding: CryptoJS.pad.Pkcs7,
+  }).toString();
+  let end = Date.now()
+  let algoUsed = "TripleDES"
+*/
+
+/*encrypting message using AES
+
+  let start = Date.now()
+  const ciphertext = CryptoJS.AES.encrypt( messageInput.value, key, {
+    mode: CryptoJS.mode.CTR,
+    padding: CryptoJS.pad.Pkcs7,
+  }).toString();
+  let end = Date.now()
+  let algoUsed = "AES"
+*/
+
+  /*encrypting message using RC4
+  */
+  let start = Date.now()
+  const ciphertext = CryptoJS.RC4.encrypt( messageInput.value, key, {
+    mode: CryptoJS.mode.CTR,
+    padding: CryptoJS.pad.Pkcs7,
+  }).toString();
+  let end = Date.now()
+  let algoUsed = "RC4"
+  
+
+  let file_bytes = messageInput.value.length;
+
+  let file_size = "";
+
+  if(file_bytes <= 1)
+  {
+    file_size = "Tiny (1 Byte)"
+  }
+  else if(file_bytes <= 25)
+  {
+    file_size = "Small (<=25 Bytes)"
+  }
+  else if(file_bytes <= 150)
+  {
+    file_size = "Medium (<=150 Bytes)"
+  }
+  else if(file_bytes <= 500)
+  {
+    file_size = "Large (<=500 Bytes)"
+  }
+  else file_size = "Huge (>500 Bytes)"
 
   const data = {
     name: nameInput.value,
     message: ciphertext,
     dateTime: new Date(),
-    enctime: end-start
+    fileSize: file_size,
+    algo: algoUsed,
+    enctime: end-start + "ms",
   }
   socket.emit('message', data)
   addMessageToUI(true, data)
@@ -48,9 +108,34 @@ socket.on('chat-message', (data) => {
 function addMessageToUI(isOwnMessage, data) {
   clearFeedback()
 
-  //decrypting message
+/*decrypting ciphertext using DES
+
+  const decrypted = CryptoJS.DES.decrypt(data.message, key, {
+    mode: CryptoJS.mode.CTR,
+    padding: CryptoJS.pad.Pkcs7,
+  }).toString(CryptoJS.enc.Utf8);
+*/
+
+/*decrypting ciphertext using TripleDES
+
+  const decrypted = CryptoJS.TripleDES.decrypt(data.message, key, {
+    mode: CryptoJS.mode.CTR,
+    padding: CryptoJS.pad.Pkcs7,
+  }).toString(CryptoJS.enc.Utf8);
+*/
+
+/*decrypting ciphertext using AES
+
   const decrypted = CryptoJS.AES.decrypt(data.message, key, {
-    mode: CryptoJS.mode.CBC,
+    mode: CryptoJS.mode.CTR,
+    padding: CryptoJS.pad.Pkcs7,
+  }).toString(CryptoJS.enc.Utf8);
+  */
+
+  /*decrypting ciphertext using RC4
+  */
+  const decrypted = CryptoJS.RC4.decrypt(data.message, key, {
+    mode: CryptoJS.mode.CTR,
     padding: CryptoJS.pad.Pkcs7,
   }).toString(CryptoJS.enc.Utf8);
 

@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 4000
 const server = app.listen(PORT, () => console.log(`💬 server on port ${PORT}`))
 
 const io = require('socket.io')(server)
-
+ 
 //database connection
 const con = mysql.createConnection({
   host: 'localhost',
@@ -38,17 +38,49 @@ function onConnected(socket)
 
   socket.on('message', (data) => {
 
+/*decrypting ciphertext using DES
+
+    let start = Date.now()
+    const decrypted = CryptoJS.DES.decrypt(data.message, key, {
+      mode: CryptoJS.mode.CTR,
+      padding: CryptoJS.pad.Pkcs7,
+    }).toString(CryptoJS.enc.Utf8);
+    let end = Date.now()
+*/
+
+/*decrypting ciphertext using TripleDES
+
+    let start = Date.now()
+    const decrypted = CryptoJS.TripleDES.decrypt(data.message, key, {
+      mode: CryptoJS.mode.CTR,
+      padding: CryptoJS.pad.Pkcs7,
+    }).toString(CryptoJS.enc.Utf8);
+    let end = Date.now()
+*/
+
+/*decrypting ciphertext using AES
+
     let start = Date.now()
     const decrypted = CryptoJS.AES.decrypt(data.message, key, {
-      mode: CryptoJS.mode.CBC,
+      mode: CryptoJS.mode.CTR,
+      padding: CryptoJS.pad.Pkcs7,
+    }).toString(CryptoJS.enc.Utf8);
+    let end = Date.now()
+*/
+
+    /*decrypting ciphertext using RC4
+    */
+    let start = Date.now()
+    const decrypted = CryptoJS.RC4.decrypt(data.message, key, {
+      mode: CryptoJS.mode.CTR,
       padding: CryptoJS.pad.Pkcs7,
     }).toString(CryptoJS.enc.Utf8);
     let end = Date.now()
 
-    let dectime = end-start
-    let filesize = decrypted.length * 4;
+    
+    let dectime = end-start + "ms"
 
-    con.query('insert into data values( 1,'+ filesize +','+ data.enctime +','+ dectime +', "AES")' )
+    con.query('insert into data values( "'+data.fileSize+'","'+data.algo+'","'+data.enctime+'","'+dectime+'")' )
 
     socket.broadcast.emit('chat-message', data)
   })
