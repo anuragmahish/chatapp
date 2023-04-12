@@ -28,7 +28,7 @@ body {
 }
 
 .main {
-  border: 8px solid #dddddd;
+  border: 1px solid black;
   border-radius: 24px;
   overflow: hidden;
 }
