@@ -15,16 +15,17 @@ body {
   align-items: center; */
   display: grid;
   place-items: center;
-  background-color: #ebebeb;
+  background-color: black;
 }
 
 .fa-user:before {
   content: "\f007";
-  color: black;
+  color: whitesmoke;
 }
 
 .title {
   margin: 20px 0;
+  color : #52b788;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -50,7 +51,7 @@ body {
 .name-input {
   font-size: 24px;
   font-weight: 700;
-  color: black;
+  color: #95d5b2;
   flex-grow: 1;
   border: none;
   margin: 0px 12px;
@@ -62,7 +63,7 @@ body {
 .message-container {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: #dee2e6;
   width: 1000px;
   height: 500px;
   overflow-y: scroll;
@@ -125,13 +126,14 @@ body {
   outline: none;
   padding: 0 15px;
   background-color: #495057;
-  color: #95d5b2;
+  color: whitesmoke;
 }
 
 .send-button {
   height: 48px;
   font-size: 16px;
   border: none;
+  color : whitesmoke;
   padding: 0px 20px;
   outline: none;
   background-color: #343a40;
