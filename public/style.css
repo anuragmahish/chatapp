@@ -56,8 +56,8 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #f6f6f6;
-  width: 400px;
-  height: 600px;
+  width: 1000px;
+    height: 500px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -75,14 +75,14 @@ body {
 .message-left {
   border-radius: 20px 20px 20px 0px;
   align-self: flex-start;
-  background-color: #fff;
+  background-color: #6D5D6E;
   box-shadow: -2px 2px 4px #dcdcdc;
 }
 
 .message-right {
   border-radius: 20px 20px 0px 20px;
   align-self: flex-end;
-  background-color: #2d2d2d;
+  background-color: #393646;
   box-shadow: 2px 2px 4px #dcdcdc;
   color: #f6f6f6;
 }
@@ -106,7 +106,7 @@ body {
 .message-form {
   display: flex;
   justify-content: space-between;
-  width: 400px;
+  width: 1000px;
 }
 
 .message-input {
@@ -115,7 +115,7 @@ body {
   font-size: 16px;
   border: none;
   outline: none;
-  padding: 0 12px;
+  padding: 0 15px;
   background-color: #fff;
 }
 
