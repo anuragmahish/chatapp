@@ -29,7 +29,7 @@ body {
 }
 
 .main {
-  border: 1px solid black;
+  border: 1px solid #52b788;
   border-radius: 24px;
   overflow: hidden;
 }
@@ -39,8 +39,8 @@ body {
   font-size: 32px;
   font-weight: 700;
   padding: 8px 16px;
-  color: #7e7e7e;
-  background-color: #f5ba13;
+  color: #95d5b2;
+  background-color: #212529;
 }
 
 .name > span {
@@ -55,14 +55,14 @@ body {
   border: none;
   margin: 0px 12px;
   outline: none;
-  background-color: #f5ba13;
+  background-color: #212529;
   font-family: "Montserrat", sans-serif;
 }
 
 .message-container {
   display: flex;
   flex-direction: column;
-  background-color: beige;
+  background-color: white;
   width: 1000px;
   height: 500px;
   overflow-y: scroll;
@@ -124,8 +124,8 @@ body {
   border: none;
   outline: none;
   padding: 0 15px;
-  background-color: #f7de8f;
-  color: black;
+  background-color: #495057;
+  color: #95d5b2;
 }
 
 .send-button {
@@ -134,7 +134,7 @@ body {
   border: none;
   padding: 0px 20px;
   outline: none;
-  background-color: #f5ba13;
+  background-color: #343a40;
   cursor: pointer;
 }
 
