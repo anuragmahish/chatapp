@@ -18,6 +18,11 @@ body {
   background-color: #ebebeb;
 }
 
+.fa-user:before {
+  content: "\f007";
+  color: black;
+}
+
 .title {
   margin: 20px 0;
 }
@@ -34,7 +39,7 @@ body {
   font-weight: 700;
   padding: 8px 16px;
   color: #7e7e7e;
-  background-color: #ebebeb;
+  background-color: #f5ba13;
 }
 
 .name > span {
@@ -44,20 +49,20 @@ body {
 .name-input {
   font-size: 24px;
   font-weight: 700;
-  color: #7e7e7e;
+  color: black;
   flex-grow: 1;
   border: none;
   margin: 0px 12px;
   outline: none;
-  background-color: #ebebeb;
+  background-color: #f5ba13;
 }
 
 .message-container {
   display: flex;
   flex-direction: column;
-  background-color: #f6f6f6;
+  background-color: beige;
   width: 1000px;
-    height: 500px;
+  height: 500px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -75,14 +80,15 @@ body {
 .message-left {
   border-radius: 20px 20px 20px 0px;
   align-self: flex-start;
-  background-color: #6D5D6E;
+  background-color: #301B3F;
   box-shadow: -2px 2px 4px #dcdcdc;
+  color: #f6f6f6;
 }
 
 .message-right {
   border-radius: 20px 20px 0px 20px;
   align-self: flex-end;
-  background-color: #393646;
+  background-color: black;
   box-shadow: 2px 2px 4px #dcdcdc;
   color: #f6f6f6;
 }
@@ -116,7 +122,8 @@ body {
   border: none;
   outline: none;
   padding: 0 15px;
-  background-color: #fff;
+  background-color: #f7de8f;
+  color: black;
 }
 
 .send-button {
@@ -125,7 +132,7 @@ body {
   border: none;
   padding: 0px 20px;
   outline: none;
-  background-color: #fff;
+  background-color: #f5ba13;
   cursor: pointer;
 }
 
