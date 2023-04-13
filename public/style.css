@@ -83,17 +83,17 @@ body {
 .message-left {
   border-radius: 20px 20px 20px 0px;
   align-self: flex-start;
-  background-color: #301B3F;
+  background-color: #212121;
   box-shadow: -2px 2px 4px #dcdcdc;
-  color: #f6f6f6;
+  color: white;
 }
 
 .message-right {
   border-radius: 20px 20px 0px 20px;
   align-self: flex-end;
-  background-color: black;
+  background-color: #393E46;
   box-shadow: 2px 2px 4px #dcdcdc;
-  color: #f6f6f6;
+  color: white;
 }
 
 .message-left > p > span,

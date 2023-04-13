@@ -43,7 +43,7 @@ function sendMessage() {
 */
 
 /*encrypting message using AES
-
+*/
   let start = Date.now()
   const ciphertext = CryptoJS.AES.encrypt( messageInput.value, key, {
     mode: CryptoJS.mode.CTR,
@@ -51,10 +51,10 @@ function sendMessage() {
   }).toString();
   let end = Date.now()
   let algoUsed = "AES"
-*/
+
 
   /*encrypting message using RC4
-  */
+  
   let start = Date.now()
   const ciphertext = CryptoJS.RC4.encrypt( messageInput.value, key, {
     mode: CryptoJS.mode.CTR,
@@ -62,7 +62,7 @@ function sendMessage() {
   }).toString();
   let end = Date.now()
   let algoUsed = "RC4"
-  
+  */
 
   let file_bytes = messageInput.value.length;
 
@@ -125,20 +125,20 @@ function addMessageToUI(isOwnMessage, data) {
 */
 
 /*decrypting ciphertext using AES
-
+*/
   const decrypted = CryptoJS.AES.decrypt(data.message, key, {
     mode: CryptoJS.mode.CTR,
     padding: CryptoJS.pad.Pkcs7,
   }).toString(CryptoJS.enc.Utf8);
-  */
+  
 
   /*decrypting ciphertext using RC4
-  */
+  
   const decrypted = CryptoJS.RC4.decrypt(data.message, key, {
     mode: CryptoJS.mode.CTR,
     padding: CryptoJS.pad.Pkcs7,
   }).toString(CryptoJS.enc.Utf8);
-
+*/
   const element = `
       <li class="${isOwnMessage ? 'message-right' : 'message-left'}">
           <p class="message">

@@ -59,24 +59,24 @@ function onConnected(socket)
 */
 
 /*decrypting ciphertext using AES
-
+*/
     let start = Date.now()
     const decrypted = CryptoJS.AES.decrypt(data.message, key, {
       mode: CryptoJS.mode.CTR,
       padding: CryptoJS.pad.Pkcs7,
     }).toString(CryptoJS.enc.Utf8);
     let end = Date.now()
-*/
+
 
     /*decrypting ciphertext using RC4
-    */
+    
     let start = Date.now()
     const decrypted = CryptoJS.RC4.decrypt(data.message, key, {
       mode: CryptoJS.mode.CTR,
       padding: CryptoJS.pad.Pkcs7,
     }).toString(CryptoJS.enc.Utf8);
     let end = Date.now()
-
+*/
     
     let dectime = end-start + "ms"
 
