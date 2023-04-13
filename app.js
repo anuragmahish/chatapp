@@ -3,7 +3,7 @@ const path = require('path')
 const app = express()
 const mysql = require('mysql')
 const CryptoJS = require('crypto-js')
-const key = "sed-lyf-of-munmun"
+const key = "very-very-sed-lyf-of-munmun"
 
 const PORT = process.env.PORT || 4000
 const server = app.listen(PORT, () => console.log(`💬 server on port ${PORT}`))
