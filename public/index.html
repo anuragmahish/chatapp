@@ -1,72 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link font-family: "Montserrat", sans-serif;
-    href="https://fonts.googleapis.com/css?family=McLaren|Montserrat&display=swap"
-    rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-      crossorigin="anonymous"
-    />
+    <link font-family: "Montserrat", sans-serif; href="https://fonts.googleapis.com/css?family=McLaren|Montserrat&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
     <link rel="stylesheet" href="style.css" />
     <title>Chat app</title>
   </head>
-
   <body>
-
-    <!-- title -->
     <h1 class="title">CryptChat</h1>
-
     <div class="main">
-
-      <!-- name of user -->
       <div class="name">
         <span><i class="far fa-user"></i></span>
-        <input
-          type="text"
-          id="name-input"
-          class="name-input"
-          value="User name"
-          maxlength="20"
-        />
+        <input type="text" id="name-input" class="name-input" value="User name" maxlength="20"/>
       </div>
-
-      <!-- messages display box -->
-      <ul class="message-container" id="message-container">
-      </ul>
-      
-      <!-- typing box -->
+      <ul class="message-container" id="message-container"></ul>
       <form action="/" method="post" class="message-form" id="message-form">
-        <input
-          type="text"
-          name="message"
-          id="message-input"
-          class="message-input"
-          value="Enter the message here"
-        />
+        <input type="text" name="message" id="message-input" class="message-input" value="Type..."/>
         <div class="v-divider"></div>
-        <button type="submit" class="send-button">
-          send <span><i class="fas fa-paper-plane"></i></span>
-        </button>
+        <button type="submit" class="send-button"> send <span><i class="fas fa-paper-plane"></i></span> </button>
       </form>
-
     </div>
-
     <h3 class="clients-total" id="client-total">Total clients: </h3>
-
     <script src="/socket.io/socket.io.js"></script>
-
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js"
-      integrity="sha512-Q1f3TS3vSt1jQ8AwP2OuenztnLU6LwxgyyYOG1jgMW/cbEMHps/3wjvnl1P3WTrF3chJUWEoxDUEjMxDV8pujg=="
-      crossorigin="anonymous"
-    ></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
     <script src="main.js"></script>
   </body>
