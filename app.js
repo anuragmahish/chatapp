@@ -3,8 +3,8 @@ const path = require('path')
 const app = express()
 const mysql = require('mysql')
 const CryptoJS = require('crypto-js')
-
-const key = "very-very-sed-lyf-of-munmun"
+ 
+const key = ")(*&^%$#@!1234567890asdfghjklmnbvcxzqwertyuiop"
 
 const PORT = process.env.PORT || 4000
 const server = app.listen(PORT, () => console.log(`💬 server on port ${PORT}`))
@@ -59,6 +59,16 @@ function onConnected(socket)
     let end = Date.now()
 */
 
+/*decrypting ciphertext using RC4
+    
+    let start = Date.now()
+    const decrypted = CryptoJS.RC4.decrypt(data.message, key, {
+      mode: CryptoJS.mode.CTR,
+      padding: CryptoJS.pad.Pkcs7,
+    }).toString(CryptoJS.enc.Utf8);
+    let end = Date.now()
+*/
+
 /*decrypting ciphertext using AES
 */
     let start = Date.now()
@@ -68,17 +78,6 @@ function onConnected(socket)
     }).toString(CryptoJS.enc.Utf8);
     let end = Date.now()
 
-
-    /*decrypting ciphertext using RC4
-    
-    let start = Date.now()
-    const decrypted = CryptoJS.RC4.decrypt(data.message, key, {
-      mode: CryptoJS.mode.CTR,
-      padding: CryptoJS.pad.Pkcs7,
-    }).toString(CryptoJS.enc.Utf8);
-    let end = Date.now()
-*/
-    
     let dectime = end-start + "ms"
 
     con.query('insert into data values( "'+data.fileSize+'","'+data.algo+'","'+data.enctime+'","'+dectime+'")' )

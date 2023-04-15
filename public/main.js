@@ -6,16 +6,14 @@ const messageForm = document.getElementById('message-form')
 const messageInput = document.getElementById('message-input')
 
 const messageTone = new Audio('/message-tone.mp3')
-const key = "sed-lyf-of-munmun"
+const key = ")(*&^%$#@!1234567890asdfghjklmnbvcxzqwertyuiop"
 
 messageForm.addEventListener('submit', (e) => {
   e.preventDefault()
   sendMessage()
 })
 
-socket.on('clients-total', (data) => {
-  clientsTotal.innerText = `Total Clients: ${data}`
-})
+socket.on('clients-total', (data) => { clientsTotal.innerText = `Total Clients: ${data}` })
 
 function sendMessage() {
   if (messageInput.value === '') return
@@ -42,18 +40,7 @@ function sendMessage() {
   let algoUsed = "TripleDES"
 */
 
-/*encrypting message using AES
-*/
-  let start = Date.now()
-  const ciphertext = CryptoJS.AES.encrypt( messageInput.value, key, {
-    mode: CryptoJS.mode.CTR,
-    padding: CryptoJS.pad.Pkcs7,
-  }).toString();
-  let end = Date.now()
-  let algoUsed = "AES"
-
-
-  /*encrypting message using RC4
+/*encrypting message using RC4
   
   let start = Date.now()
   const ciphertext = CryptoJS.RC4.encrypt( messageInput.value, key, {
@@ -63,6 +50,16 @@ function sendMessage() {
   let end = Date.now()
   let algoUsed = "RC4"
   */
+
+  /*encrypting message using AES
+  */
+  let start = Date.now()
+  const ciphertext = CryptoJS.AES.encrypt( messageInput.value, key, {
+    mode: CryptoJS.mode.CTR,
+    padding: CryptoJS.pad.Pkcs7,
+  }).toString();
+  let end = Date.now()
+  let algoUsed = "AES"
 
   let file_bytes = messageInput.value.length;
 
