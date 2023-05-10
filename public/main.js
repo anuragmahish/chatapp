@@ -18,41 +18,6 @@ socket.on('clients-total', (data) => { clientsTotal.innerText = `Total Clients: 
 function sendMessage() {
   if (messageInput.value === '') return
   
-/*encrypting message using DES
-
-  let start = Date.now()
-  const ciphertext = CryptoJS.DES.encrypt( messageInput.value, key, {
-    mode: CryptoJS.mode.CTR,
-    padding: CryptoJS.pad.Pkcs7,
-  }).toString();
-  let end = Date.now()
-  let algoUsed = "DES"
-*/
-
-/*encrypting message using TripleDES
-
-  let start = Date.now()
-  const ciphertext = CryptoJS.TripleDES.encrypt( messageInput.value, key, {
-    mode: CryptoJS.mode.CTR,
-    padding: CryptoJS.pad.Pkcs7,
-  }).toString();
-  let end = Date.now()
-  let algoUsed = "TripleDES"
-*/
-
-/*encrypting message using RC4
-  
-  let start = Date.now()
-  const ciphertext = CryptoJS.RC4.encrypt( messageInput.value, key, {
-    mode: CryptoJS.mode.CTR,
-    padding: CryptoJS.pad.Pkcs7,
-  }).toString();
-  let end = Date.now()
-  let algoUsed = "RC4"
-  */
-
-  /*encrypting message using AES
-  */
   let start = Date.now()
   const ciphertext = CryptoJS.AES.encrypt( messageInput.value, key, {
     mode: CryptoJS.mode.CTR,
